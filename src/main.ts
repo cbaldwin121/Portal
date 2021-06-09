@@ -8,9 +8,8 @@ import { defineCustomElements } from '@ionic/pwa-elements/loader';
 // Amplify Configuration
 import Amplify, { Auth } from 'aws-amplify';
 import Storage from '@aws-amplify/storage';
-import AWSConfig from './aws-exports';
-Storage.configure(AWSConfig);
-Auth.configure(AWSConfig);
+//Storage.configure(AWSConfig);
+//Auth.configure(AWSConfig);
 
 if (environment.production) {
   enableProdMode();

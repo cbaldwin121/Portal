@@ -21,14 +21,14 @@ import { IonicStorageModule } from '@ionic/storage';
 /* Add Amplify imports */
 import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
 import Amplify, { Storage } from 'aws-amplify';
-import awsconfig from '../aws-exports';
+//import awsconfig from '../aws-exports';
 import { LoginPage } from './pages/login/login.page'
 import { OAuthService } from 'angular-oauth2-oidc';
 import { ModalPost } from './pages/modal-post/modal-post';
 
 
 /* Configure Amplify resources */
-Amplify.configure(awsconfig);
+//Amplify.configure(awsconfig);
 
 @NgModule({
   declarations: [AppComponent, ModalPost],
