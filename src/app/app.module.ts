@@ -10,16 +10,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthModule } from './service/auth/auth.module';
-import { File } from '@ionic-native/File/ngx';
+//import { File } from '@ionic-native/File/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { LoginPageModule } from './pages/login/login.module';
 import { OAuthModule } from 'angular-oauth2-oidc';
+
+
 
 import { IonicStorageModule } from '@ionic/storage';
 //We also make use of the Ionic Storage not to store the files but the path to a file later on
 
 /* Add Amplify imports */
 import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
+
 import Amplify, { Storage } from 'aws-amplify';
 //import awsconfig from '../aws-exports';
 import { LoginPage } from './pages/login/login.page'
@@ -43,7 +46,7 @@ import { ModalPost } from './pages/modal-post/modal-post';
     ],
   providers: [
     Camera,
-    File,
+    //File,
     SplashScreen,
     WebView,
     OAuthService,

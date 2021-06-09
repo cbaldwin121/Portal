@@ -13,11 +13,11 @@ export const authFactory = (platform: Platform, ngZone: NgZone,
   const authService = new AuthService(browser, storage, requestor);
 
   if (platform.is('mobile') && !platform.is('mobileweb')) {
-    environment.oidcConfig.scopes += ' offline_access';
-    environment.oidcConfig.redirect_url = '.okta.dev-33168249:/callback';
-    environment.oidcConfig.end_session_redirect_url = '.okta.dev-33168249:/logout';
+    //environment.oidcConfig.scopes += ' offline_access';
+    //environment.oidcConfig.redirect_url = '.okta.dev-33168249:/callback';
+    //environment.oidcConfig.end_session_redirect_url = '.okta.dev-33168249:/logout';
   }
-  authService.authConfig = environment.oidcConfig;
+  //authService.authConfig = environment.oidcConfig;
 
   if (platform.is('mobile') && !platform.is('mobileweb')) {
     App.addListener('appUrlOpen', (data: any) => {

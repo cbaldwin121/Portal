@@ -2,7 +2,7 @@ import { ModalController } from '@ionic/angular';
 
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Camera, CameraOptions, PictureSourceType } from '@ionic-native/camera/ngx';
-import { File, FileEntry } from '@ionic-native/File/ngx';
+//import { File, FileEntry } from '@ionic-native/File/ngx';
 import { HttpClient } from '@angular/common/http';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { Storage } from '@ionic/storage';

@@ -51,7 +51,8 @@
  *  (window as any).__Zone_enable_cross_context_check = true;
  *
  */
-
+ import 'core-js/es/typed-array';
+ import 'core-js/es/object';
 import './zone-flags';
 
 /***************************************************************************************************

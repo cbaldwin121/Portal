@@ -11,7 +11,7 @@ import Storage from '@aws-amplify/storage';
 //Storage.configure(AWSConfig);
 //Auth.configure(AWSConfig);
 
-if (environment.production) {
+if (environment) {
   enableProdMode();
 }
 
