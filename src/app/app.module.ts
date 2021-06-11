@@ -9,7 +9,7 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthModule } from './service/auth/auth.module';
+//import { AuthModule } from './service/auth/auth.module';
 //import { File } from '@ionic-native/File/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { LoginPageModule } from './pages/login/login.module';
@@ -35,14 +35,14 @@ import { ModalPost } from './pages/modal-post/modal-post';
 
 @NgModule({
   declarations: [AppComponent, ModalPost],
-  entryComponents: [LoginPage],
+  entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     HttpClientModule,
     AmplifyUIAngularModule,
     BrowserModule,
     OAuthModule.forRoot(),
-    AuthModule,
-    LoginPageModule
+
+    
     ],
   providers: [
     Camera,
@@ -51,7 +51,7 @@ import { ModalPost } from './pages/modal-post/modal-post';
     WebView,
     OAuthService,
     StatusBar,
-    AuthModule,
+
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

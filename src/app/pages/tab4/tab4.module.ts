@@ -1,4 +1,4 @@
-import { AuthModule } from '../../service/auth/auth.module';
+
 import { IonicModule, ModalController } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -12,7 +12,7 @@ import { Tab4PageRoutingModule } from './tab4-routing.module';
     IonicModule,
     CommonModule,
     FormsModule,
-    AuthModule,
+
     RouterModule.forChild([{ path: '', component: Tab4Page }]),
     Tab4PageRoutingModule,
   ],

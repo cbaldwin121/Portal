@@ -1,4 +1,4 @@
-import { AuthModule } from '../../service/auth/auth.module';
+//import { AuthModule } from '../../service/auth/auth.module';
 import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -13,7 +13,7 @@ import { Tab1PageRoutingModule } from './tab1-routing.module';
     CommonModule,
     FormsModule,
     Tab1PageRoutingModule,
-    AuthModule,
+
   ],
   declarations: [Tab1Page]
 })

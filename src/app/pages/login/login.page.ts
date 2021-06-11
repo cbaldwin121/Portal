@@ -7,31 +7,35 @@ import { NavController } from '@ionic/angular';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit, OnDestroy {
+export class LoginPage {
+  
+  
   action: IAuthAction;
   observer: AuthObserver;
 
-  constructor(private auth: AuthService, private navCtrl: NavController) {
+  constructor() {
   }
 
   ngOnInit() {
-    this.auth.loadTokenFromStorage();
-    this.observer = this.auth.addActionListener((action) => this.onSignInSuccess(action));
+  //  this.auth.loadTokenFromStorage();
+  //  this.observer = this.auth.addActionListener((action) => this.onSignInSuccess(action));
   }
 
-  ngOnDestroy() {
-    this.auth.removeActionObserver(this.observer);
-  }
+  // ngOnDestroy() {
+  //   this.auth.removeActionObserver(this.observer);
+  // }
 
-  public signIn() {
-    this.auth.signIn();
-  }
+  // public signIn() {
+  //   this.auth.signIn();
+  // }
 
-  private onSignInSuccess(action: IAuthAction) {
-    this.action = action;
-    if (action.action === AuthActions.SignInSuccess ||
-      action.action === AuthActions.LoadTokenFromStorageSuccess) {
-      this.navCtrl.navigateRoot('tabs');
-    }
-  }
+  
+
+  // private onSignInSuccess(action: IAuthAction) {
+  //   this.action = action;
+  //   if (action.action === AuthActions.SignInSuccess ||
+  //     action.action === AuthActions.LoadTokenFromStorageSuccess) {
+  //     this.navCtrl.navigateRoot('tabs');
+  //   }
+  // }
 }
