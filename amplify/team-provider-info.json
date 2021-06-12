@@ -1,20 +1,15 @@
 {
-  "dev": {
+  "dorothea": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-artanalysis-dev-220316-authRole",
-      "UnauthRoleArn": "arn:aws:iam::174185055095:role/amplify-artanalysis-dev-220316-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::174185055095:role/amplify-artanalysis-dev-220316-authRole",
+      "AuthRoleName": "amplify-artanalysis-dorothea-113351-authRole",
+      "UnauthRoleArn": "arn:aws:iam::171592768311:role/amplify-artanalysis-dorothea-113351-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::171592768311:role/amplify-artanalysis-dorothea-113351-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-artanalysis-dev-220316-deployment",
-      "UnauthRoleName": "amplify-artanalysis-dev-220316-unauthRole",
-      "StackName": "amplify-artanalysis-dev-220316",
-      "StackId": "arn:aws:cloudformation:us-east-1:174185055095:stack/amplify-artanalysis-dev-220316/e9821c60-a30e-11eb-9ec8-0e7b928af6d7",
-      "AmplifyAppId": "d21652chscp0tj"
-    },
-    "categories": {
-      "auth": {
-        "artanalysis242df985": {}
-      }
+      "DeploymentBucketName": "amplify-artanalysis-dorothea-113351-deployment",
+      "UnauthRoleName": "amplify-artanalysis-dorothea-113351-unauthRole",
+      "StackName": "amplify-artanalysis-dorothea-113351",
+      "StackId": "arn:aws:cloudformation:us-east-1:171592768311:stack/amplify-artanalysis-dorothea-113351/43194640-ca01-11eb-978e-0ecdc090d557",
+      "AmplifyAppId": "d2fhzamxscfdd3"
     }
   }
 }

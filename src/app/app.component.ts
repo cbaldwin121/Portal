@@ -4,6 +4,8 @@ import { Plugins } from '@capacitor/core';
 import { AuthObserver } from 'ionic-appauth';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 
 
 @Component({

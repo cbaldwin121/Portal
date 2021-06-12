@@ -24,25 +24,26 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
 
 import Amplify, { Storage } from 'aws-amplify';
-//import awsconfig from '../aws-exports';
+import awsconfig from '../aws-exports';
 import { LoginPage } from './pages/login/login.page'
 import { OAuthService } from 'angular-oauth2-oidc';
 import { ModalPost } from './pages/modal-post/modal-post';
-
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 /* Configure Amplify resources */
-//Amplify.configure(awsconfig);
+Amplify.configure(awsconfig);
 
 @NgModule({
   declarations: [AppComponent, ModalPost],
-  entryComponents: [],
+  entryComponents: [LoginPage],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     HttpClientModule,
     AmplifyUIAngularModule,
     BrowserModule,
     OAuthModule.forRoot(),
-
-    
+    ReactiveFormsModule,
+    FormsModule,
+    LoginPageModule
     ],
   providers: [
     Camera,
@@ -56,3 +57,4 @@ import { ModalPost } from './pages/modal-post/modal-post';
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+

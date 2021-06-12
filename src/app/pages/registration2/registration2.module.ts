@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Registration2PageRoutingModule } from './registration2-routing.module';
 
 import { Registration2Page } from './registration2.page';
@@ -12,6 +11,7 @@ import { Registration2Page } from './registration2.page';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     IonicModule,
     Registration2PageRoutingModule
   ],

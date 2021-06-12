@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "artanalysis242df985_identitypool_242df985",
-    "allowUnauthenticatedIdentities": true,
-    "resourceNameTruncated": "artana242df985",
-    "userPoolName": "artanalysis242df985_userpool_242df985",
+    "identityPoolName": "artanalysis4d6ad892_identitypool_4d6ad892",
+    "allowUnauthenticatedIdentities": false,
+    "resourceNameTruncated": "artana4d6ad892",
+    "userPoolName": "artanalysis4d6ad892_userpool_4d6ad892",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,10 +28,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "artana242df985_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "artana4d6ad892_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "242df985",
-    "resourceName": "artanalysis242df985",
+    "sharedId": "4d6ad892",
+    "resourceName": "artanalysis4d6ad892",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -46,9 +46,6 @@
         ]
     },
     "useDefault": "default",
-    "usernameAttributes": [
-        "email, phone_number"
-    ],
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,

@@ -1,30 +1,32 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title>Log In</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <form>
-    <ion-item lines="full">
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="text" required></ion-input>
-    </ion-item>
+	<div class="flex flex-column main-container">
+    <div class="welcome">
+		<img class="icon" src="assets/icon/first-aid-kit-color.svg" />
+		<h5>Welcome back,</h5>
+		<p>login to your account</p>
+	</div>
 
-    <ion-item lines="full">
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" required></ion-input>
-    </ion-item>
+		<div [formGroup]="signinForm" class="ion-text-center">
+			<ion-item class="ion-no-padding" lines="none">
+				<ion-label position="stacked">Email address</ion-label>
+				<ion-input type="email" formControlName="email" required></ion-input>
+			</ion-item>
+			<ion-item class="ion-no-padding" lines="none">
+				<ion-label position="stacked">Password</ion-label>
+				<ion-input type="password" formControlName="password" required></ion-input>
+			</ion-item>
+			<p class="input-help">Forgot password?</p>
 
-    <ion-row>
-      <ion-col>
-        <ion-button type="submit" color="danger" expand="block">Sign In</ion-button>
-        <a [routerLink]="['/forgot-password']" class="small-text">Forgot Password?</a>
-      </ion-col>
-    </ion-row>
-  </form>
+			<ion-button class="apply-button" expand="block" (click)="login()">
+				Sign In
+			</ion-button>
+			
+		</div>
+		<div class="text ion-text-center">
+			<span
+				>Don't have an account?
+				<a [routerLink]="['/register']">Sign up</a></span
+			>
+		</div>
+	</div>
 </ion-content>
-

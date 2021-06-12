@@ -3,7 +3,11 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'landing', pathMatch: 'full' },
+  {
+    path: '',
+    // canLoad: [AuthGuard],
+    loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)
+  },
   { path: 'landing', loadChildren: () => import('./pages/landing/landing.module').then( m => m.LandingPageModule)},
   {
     path: 'login',
@@ -12,7 +16,8 @@ const routes: Routes = [
   {
     path: 'registration',
     loadChildren: () => import('./pages/registration/registration.module').then( m => m.RegistrationPageModule)
-  },  {
+  },
+  {
     path: 'forgot-password',
     loadChildren: () => import('./pages/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
   },
@@ -21,9 +26,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/registration2/registration2.module').then( m => m.Registration2PageModule)
   },
   {
-    path: 'registration3',
-    loadChildren: () => import('./pages/registration3/registration3.module').then( m => m.Registration3PageModule)
+    path: 'confirm-email',
+    loadChildren: () => import('./pages/confirm-email/confirm-email.module').then( m => m.ConfirmEmailPageModule)
   },
+
 
 ];
 

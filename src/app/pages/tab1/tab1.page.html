@@ -6,10 +6,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-      <ion-button margin-top (click)="signIn()" *ngIf="!action">Login</ion-button>
-  <ion-card *ngIf="action">
 
+<ion-content>
+  <ion-card *ngIf="action">
     <h1 text-center>Photos will be displayed here based of who user is following-- first I am going to just display photos that the user themselves posted</h1>
     <ion-grid>
       <ion-row>
