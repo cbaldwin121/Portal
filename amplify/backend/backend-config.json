@@ -7,17 +7,12 @@
       "customAuth": false
     }
   },
-<<<<<<< Updated upstream
-  "storage": {},
-=======
   "storage": {
-<<<<<<< Updated upstream
     "s36cf0d651": {
       "service": "S3",
       "providerPlugin": "awscloudformation"
     }
   },
->>>>>>> Stashed changes
   "api": {
     "auth": {
       "service": "AppSync",
@@ -31,7 +26,6 @@
         }
       }
     }
-<<<<<<< Updated upstream
   },
   "hosting": {
     "amplifyhosting": {
