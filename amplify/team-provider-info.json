@@ -13,15 +13,6 @@
     },
     "categories": {
       "auth": {
-        "artanalysis242df985": {}
-      "DeploymentBucketName": "amplify-artanalysis-dorothea-113351-deployment",
-      "UnauthRoleName": "amplify-artanalysis-dorothea-113351-unauthRole",
-      "StackName": "amplify-artanalysis-dorothea-113351",
-      "StackId": "arn:aws:cloudformation:us-east-1:171592768311:stack/amplify-artanalysis-dorothea-113351/43194640-ca01-11eb-978e-0ecdc090d557",
-      "AmplifyAppId": "d2fhzamxscfdd3"
-    },
-    "categories": {
-      "auth": {
         "artanalysis4d6ad892": {}
       },
       "hosting": {
