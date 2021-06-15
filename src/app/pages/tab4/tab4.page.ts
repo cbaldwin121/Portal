@@ -3,10 +3,11 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { ModalController, NavParams } from '@ionic/angular';
 
-import { ModalPost } from '../modal-post/modal-post';
+
 import { EditProfile } from '../edit-profile/edit-profile';
 import { Options } from '../options/options';
 import { AuthService } from 'src/app/service/auth.service';
+import { Auth } from 'aws-amplify';
 
 @Component({
   selector: 'app-tab4',
@@ -50,10 +51,12 @@ export class Tab4Page implements OnInit, OnDestroy{
     this.nav.push(Options, {});
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     //this.auth.loadTokenFromStorage();
     //this.authObserver = this.auth.addActionListener((action) => this.onAction(action));
     this.getUserInfo();
+    let user = await Auth.currentAuthenticatedUser();
+
   }
 
   ngOnDestroy() {
