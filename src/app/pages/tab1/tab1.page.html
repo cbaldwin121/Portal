@@ -1,11 +1,15 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      PhotoShare
+      Upload your photo 
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
+
+<ion-col align-self-center>
+  <ion-button (click)="openCamera()">Take photo here!</ion-button>
+</ion-col>
 
 <ion-content>
   <ion-card *ngIf="action">

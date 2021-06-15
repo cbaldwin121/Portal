@@ -11,6 +11,9 @@ export interface NewUser {
   email: string,
   password: string,
   name: string, 
+  role: string,
+  child: [],
+  team: []
 };
 
 @Injectable({
@@ -18,6 +21,9 @@ export interface NewUser {
 })
 
 export class AuthService {
+  getLoggedUser() {
+    throw new Error('Method not implemented.');
+  }
 
   public loggedIn: boolean;
   private _authState: Subject<CognitoUser|any> = new Subject<CognitoUser|any>();

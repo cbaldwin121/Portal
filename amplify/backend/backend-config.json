@@ -7,7 +7,17 @@
       "customAuth": false
     }
   },
+<<<<<<< Updated upstream
   "storage": {},
+=======
+  "storage": {
+<<<<<<< Updated upstream
+    "s36cf0d651": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
+  },
+>>>>>>> Stashed changes
   "api": {
     "auth": {
       "service": "AppSync",
@@ -21,6 +31,7 @@
         }
       }
     }
+<<<<<<< Updated upstream
   },
   "hosting": {
     "amplifyhosting": {
@@ -28,5 +39,20 @@
       "type": "cicd",
       "lastPushTimeStamp": "2021-06-10T16:04:53.008Z"
     }
+=======
+=======
+    "photos": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
+  },
+  "api": {},
+  "hosting": {
+    "amplifyhosting": {
+      "service": "amplifyhosting",
+      "type": "cicd"
+    }
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
   }
 }

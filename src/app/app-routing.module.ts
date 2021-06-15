@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
@@ -28,27 +29,17 @@ const routes: Routes = [
   {
     path: 'confirm-email',
     loadChildren: () => import('./pages/confirm-email/confirm-email.module').then( m => m.ConfirmEmailPageModule)
-  },  {
+  },
+  {
     path: 'registration3',
     loadChildren: () => import('./pages/registration3/registration3.module').then( m => m.Registration3PageModule)
   },
-  {
-    path: 'user-modal',
-    loadChildren: () => import('./models/user-modal/user-modal.module').then( m => m.UserModalPageModule)
-  },
-  {
-    path: 'add-child',
-    loadChildren: () => import('./pages/add-child/add-child.module').then( m => m.AddChildPageModule)
-  },
-  {
-    path: 'user',
-    loadChildren: () => import('./service/user/user.module').then( m => m.UserPageModule)
-  },
+
+
 
 
 
 ];
-
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
@@ -56,3 +47,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
+

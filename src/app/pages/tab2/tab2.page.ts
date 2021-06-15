@@ -1,21 +1,12 @@
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController, NavController, Platform } from '@ionic/angular';
 
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Camera, CameraOptions, PictureSourceType } from '@ionic-native/camera/ngx';
-//import { File, FileEntry } from '@ionic-native/File/ngx';
-import { HttpClient } from '@angular/common/http';
-import { WebView } from '@ionic-native/ionic-webview/ngx';
-import { Storage } from '@ionic/storage';
-import { FilePath } from '@ionic-native/file-path/ngx';
-import { ActionSheetController, ToastController, Platform, LoadingController } from '@ionic/angular';
-import { finalize } from 'rxjs/operators';
-import { PhotoService } from '../../service/photo.service';
-import { Auth, input } from 'aws-amplify'
-import { CognitoUser } from '@aws-amplify/auth'
-import { ModalPost } from '../modal-post/modal-post';
 
+import { S3ServiceProvider } from 'src/app/service/s3-service.service';
+import { AuthService } from "../../service/auth.service";
 
-const STORAGE_KEY = 'my_images';
+// this page gets the user image and calls auth.service to push photo post to aws S3
 
 @Component({
   selector: 'app-tab2',
@@ -32,45 +23,38 @@ const STORAGE_KEY = 'my_images';
 //}
 
 export class Tab2Page{
-  constructor(public photoService: PhotoService, public modalCtrl: ModalController) { }
+  public imageData: string;
+  public imageView: string;
+  public imageName: string;
 
-  public photoDescription: string;
-  //public postList: Array<imgPost> = [];
-  public child_name: string;
 
-  addPhotoToGallery() {
-    return this.photoService.addNewToGallery();
+  constructor(
+    public navCtrl: NavController,
+      public platform: Platform, private camera: Camera, public s3Service: S3ServiceProvider, private loader: AlertController, public auth: AuthService
+  ) {}
+  
+  openCamera() {
+    this.platform.ready().then(readySource => {
+      const options: CameraOptions = {
+        quality: 100,
+        destinationType: this.camera.DestinationType.DATA_URL,
+        encodingType: this.camera.EncodingType.JPEG,
+        mediaType: this.camera.MediaType.PICTURE
+      };
+
+      this.camera.getPicture(options).then(
+        imageData => {
+          this.imageView = "data:image/jpeg;base64," + imageData;
+          this.imageData = imageData;
+        },
+        err => {
+          alert("Error in capture image");
+        }
+      );
+    });
   }
 
+  async uploadPhoto() {
 
-  // Triggers when user pressed a post
-  pressPhoto(user_id: number, username: string, profile_img: string, post_img: string) {
-    this.presentModal(user_id, username, profile_img, post_img, this.child_name);
-  }
-
-  // Set post modal
-  async presentModal(user_id: number, username: string, profile_img: string, post_img: string, child_name: string) {
-    let modal = await this.modalCtrl.create({
-      component: ModalPost,
-      cssClass: 'my-custom-class',
-      componentProps: {
-        user_id,
-        username: 'N/A',
-        post_img: this.addPhotoToGallery(),
-        photoDescription: '',
-        child_name
-      }
-    })
-    return await modal.present();
-  }
-  async uploadPost(){
-
-  //  const img = this.addPhotoToGallery();
-
-  //  let newPost = new imgPost();
-  //  //newPost.img =
-
-  //  this.photoService.savePost(await img, this.photoDescription)
-  //  //do nohis.photoServicething right now but should make a service that takes img and description and connects with graphql to store post so you can display
   }
 }

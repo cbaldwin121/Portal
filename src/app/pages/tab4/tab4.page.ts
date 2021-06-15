@@ -3,11 +3,13 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { ModalController, NavParams } from '@ionic/angular';
 
-
+import { CognitoUser } from 'amazon-cognito-identity-js'
 import { EditProfile } from '../edit-profile/edit-profile';
 import { Options } from '../options/options';
 import { AuthService } from 'src/app/service/auth.service';
 import { Auth } from 'aws-amplify';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab4',
@@ -16,80 +18,65 @@ import { Auth } from 'aws-amplify';
 
 })
 export class Tab4Page implements OnInit, OnDestroy{
+  profileForm: FormGroup = new FormGroup({
+    email: new FormControl('', [Validators.email ]), 
+    name: new FormControl('', [ Validators.min(2)])
+  });
 
-  //userInfo = this.auth.session.user;
-  //action: IAuthAction;
-  //authObserver: AuthObserver;
-  nav: any;
+  profile:any = {};
+  user: CognitoUser;
+  data: any;
+
+  get emailInput() {return this.profileForm.get('email')}
+  get nameInput() {return this.profileForm.get('name')}
 
 
-
-  constructor(private auth: AuthService, public modalCtrl: ModalController) {
+  constructor(private modalController: ModalController,
+              private _authService: AuthService,
+              private _router: Router,            
+              ) { }
+  ngOnDestroy(): void {
+    throw new Error('Method not implemented.');
   }
 
-  public profile_segment: string;
 
-  // You can get this data from your API. This is a dumb data for being an example.
-    //  id: 1,
-    //  username: 'candelibas',
-    //  profile_img: 'https://avatars1.githubusercontent.com/u/918975?v=3&s=120',
-    //  post_img: 'https://scontent-cdg2-1.cdninstagram.com/t51.2885-15/e35/13473123_1544898359150795_654626889_n.jpg'
+  //async logoutModal(id: number) {
+  //  const modal = await this.modalController.create({
+  //    component: LogoutModalPage,
+  //    cssClass: 'modal-container',
+  //  });
+  //  modal.onDidDismiss().then(() => this._router.navigate(['login']))
 
-
-  // Define segment for everytime when profile page is active
-  ionViewWillEnter() {
-    this.profile_segment = 'grid';
-  }
-
-  //goEditProfile() {
-    // Open it as a modal page
-  //  let modal = this.modalCtrl.create(EditProfile);
-  //  modal.present();
+  //  return await modal.present();
   //}
 
-  goOptions() {
-    this.nav.push(Options, {});
-  }
-
   async ngOnInit() {
-    //this.auth.loadTokenFromStorage();
-    //this.authObserver = this.auth.addActionListener((action) => this.onAction(action));
     this.getUserInfo();
     let user = await Auth.currentAuthenticatedUser();
 
   }
 
-  ngOnDestroy() {
-    //this.auth.removeActionObserver(this.authObserver);
+  async getUserInfo(){
+    this.profile = await Auth.currentUserInfo();
+    this.user = await Auth.currentAuthenticatedUser();
+    this.nameInput.setValue(this.profile.attributes['name']);
+    this.emailInput.setValue(this.profile.attributes['email']);
+  }
+  async editProfile() {
+    try {
+      let attributes = {
+        'name' : this.nameInput.value, 
+      }
+      await Auth.updateUserAttributes(this.user, attributes);
+
+      console.log("Profile has been updated")
+
+    }
+    catch (error){
+      console.log(error)
+    }
   }
 
-  //private onAction(action: IAuthAction) {
-  //  if (action.action === AuthActions.LoadTokenFromStorageFailed ||
-  //    action.action === AuthActions.SignInFailed ||
-  //    action.action === AuthActions.SignOutSuccess) {
-  //    delete this.action;
-  //  } else if (action.action === AuthActions.LoadUserInfoSuccess) {
-  //    this.userInfo = action.user;
-  //  } else {
-  //    this.action = action;
-  //  }
-  //}
-
-  public signOut() {
-    this.auth.signOut();
-  }
-
-  public signIn() {
-    //this.auth.signIn().catch(error => console.error(`Sign in error: ${error}`));
-  }
-
-  public async getUserInfo(): Promise<void> {
-    //this.auth.loadUserInfo();
-    //this.userInfo;
-  }
-
-  public async refreshToken(): Promise<void> {
-    //this.auth.refreshToken();
-  }
+  
 }
 

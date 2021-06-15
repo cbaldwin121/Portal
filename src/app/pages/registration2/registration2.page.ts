@@ -74,7 +74,10 @@ export class Registration2Page {
     this._authService.signUp({
       email: this.emailInput.value,
       password: this.passwordInput.value,
-      name: this.nameInput.value
+      name: this.nameInput.value,
+      role: "Guardian",
+      child: [],
+      team: []
     }).then(data => {
       environment.confirm.email = this.emailInput.value;
       environment.confirm.password = this.passwordInput.value;

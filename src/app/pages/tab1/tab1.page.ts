@@ -1,58 +1,66 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { AlertController, NavController, Platform } from '@ionic/angular';
 //import { AuthActions, AuthObserver, AuthService, IAuthAction } from 'ionic-appauth';
 import { PhotoService } from '../../service/photo.service';
 import { AuthService } from 'src/app/service/auth.service';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { S3ServiceProvider } from 'src/app/service/s3-service.service';
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page implements OnInit, OnDestroy {
-  //userInfo = this.auth.session.user;
-  //action: IAuthAction;
-  //authObserver: AuthObserver;
 
-  constructor(private navCtrl: NavController, public photoService: PhotoService, private auth: AuthService) {
-  }
+
+// Called in the front end:
+//    title, button [function- openCamera]
+
+
+export class Tab1Page implements OnInit, OnDestroy {
+
+  constructor(
+    public navCtrl: NavController,
+      public platform: Platform, private camera: Camera, private loader: AlertController, public auth: AuthService, private photoService: PhotoService,
+      public s3Service: S3ServiceProvider) {}
 
   async ngOnInit() {
-    //this.auth.loadTokenFromStorage();
-    //this.authObserver = this.auth.addActionListener((action) => this.onAction(action));
-    await this.photoService.loadSaved();
+
   }
+
+  
 
   ngOnDestroy() {
-    //this.auth.removeActionObserver(this.authObserver);
+
   }
 
-  //private onAction(action: IAuthAction) {
-    //if (action.action === AuthActions.LoadTokenFromStorageFailed ||
-   //   action.action === AuthActions.SignInFailed ||
-   //   action.action === AuthActions.SignOutSuccess) {
-   //   delete this.action;
-   // } else if (action.action === AuthActions.LoadUserInfoSuccess) {
-   //   this.userInfo = action.user;
-   // } else {
-   //   this.action = action;
-   // }
-  //}
 
-  public signOut() {
-    this.auth.signOut();
-    //this.auth.signOut();
-  }
 
-  public signIn() {
-    //this.auth.signIn().catch(error => console.error(`Sign in error: ${error}`));
-  }
+  public imageData: string;
+  public imageView: string;
+  public imageName: string;
 
-  public async getUserInfo(): Promise<void> {
-    //this.auth.loadUserInfo();
-  }
 
-  public async refreshToken(): Promise<void> {
-    //this.auth.refreshToken();
+  
+  
+  openCamera() {
+    this.platform.ready().then(readySource => {
+      const options: CameraOptions = {
+        quality: 100,
+        destinationType: this.camera.DestinationType.DATA_URL,
+        encodingType: this.camera.EncodingType.JPEG,
+        mediaType: this.camera.MediaType.PICTURE
+      };
+
+      this.camera.getPicture(options).then(
+        imageData => {
+          this.imageView = "data:image/jpeg;base64," + imageData;
+          this.imageData = imageData;
+        },
+        err => {
+          alert("Error in capture image");
+        }
+      );
+    });
   }
 }
