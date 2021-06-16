@@ -14,16 +14,32 @@
       "providerPlugin": "awscloudformation"
     }
   },
-  "photos": {
-      "service": "S3",
-      "providerPlugin": "awscloudformation"
-  }, 
-  "api": {},
+
+  "api": {
+    "auth": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "AWS_IAM"
+          },
+          "additionalAuthenticationProviders": []
+        }
+      }
+    }
+  },
   "hosting": {
     "amplifyhosting": {
       "service": "amplifyhosting",
-      "type": "cicd"
+      "type": "cicd",
+      "lastPushTimeStamp": "2021-06-10T16:04:53.008Z"
     }
-
-  }
+  },
+    "photos": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
+  },
 }
+
