@@ -1,29 +1,10 @@
 {
   "auth": {
-    "artanalysis4d6ad892": {
+    "DorotheaPlace": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
       "customAuth": false
     }
-  },
-
-  "storage": {
-    "s36cf0d651": {
-      "service": "S3",
-      "providerPlugin": "awscloudformation"
-    }
-  },
-  "photos": {
-      "service": "S3",
-      "providerPlugin": "awscloudformation"
-  }, 
-  "api": {},
-  "hosting": {
-    "amplifyhosting": {
-      "service": "amplifyhosting",
-      "type": "cicd"
-    }
-
   }
 }

@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "artanalysis4d6ad892_identitypool_4d6ad892",
+    "identityPoolName": "testAuthIdentityPool",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "artana4d6ad892",
-    "userPoolName": "artanalysis4d6ad892_userpool_4d6ad892",
+    "resourceNameTruncated": "dorotha404a4cd",
+    "userPoolName": "DorotheaPlace",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -12,26 +12,29 @@
     ],
     "smsAuthenticationMessage": "Your authentication code is {####}",
     "smsVerificationMessage": "Your verification code is {####}",
-    "emailVerificationSubject": "Your verification code",
-    "emailVerificationMessage": "Your verification code is {####}",
+    "emailVerificationSubject": "Forgot password code: {####}",
+    "emailVerificationMessage": "Forgot password code: {####}",
     "defaultPasswordPolicy": false,
     "passwordPolicyMinLength": 8,
-    "passwordPolicyCharacters": [],
+    "passwordPolicyCharacters": [
+        "Requires Lowercase",
+        "Requires Numbers",
+        "Requires Uppercase"
+    ],
     "requiredAttributes": [
-        "email"
+        "email",
+        "picture",
+        "name",
+        "birthdate"
     ],
     "userpoolClientGenerateSecret": false,
     "userpoolClientRefreshTokenValidity": 30,
-    "userpoolClientWriteAttributes": [
-        "email"
-    ],
-    "userpoolClientReadAttributes": [
-        "email"
-    ],
-    "userpoolClientLambdaRole": "artana4d6ad892_userpoolclient_lambda_role",
+    "userpoolClientWriteAttributes": [],
+    "userpoolClientReadAttributes": [],
+    "userpoolClientLambdaRole": "Dorotha404a4cd_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "4d6ad892",
-    "resourceName": "artanalysis4d6ad892",
+    "sharedId": "a404a4cd",
+    "resourceName": "DorotheaPlace",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -45,9 +48,16 @@
             "Arn"
         ]
     },
-    "useDefault": "default",
-    "userPoolGroupList": [],
     "serviceName": "Cognito",
+    "usernameAttributes": [
+        "email"
+    ],
+    "useDefault": "manual",
+    "userPoolGroups": false,
+    "userPoolGroupList": [],
+    "adminQueries": false,
+    "thirdPartyAuth": false,
+    "authProviders": [],
     "usernameCaseSensitive": false,
     "dependsOn": []
 }
